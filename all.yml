@@ -1,0 +1,7 @@
+---
+
+- hosts: htcondor_others
+  sudo: yes
+  tasks:
+  - name: Synchronize all dark matter shared data and executables
+    synchronize: src=/usr/local/dark-matter dest=/usr/local delete=yes rsync_timeout=10

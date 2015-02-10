@@ -1,0 +1,7 @@
+---
+
+- hosts: htcondor_others
+  sudo: yes
+  tasks:
+  - name: Synchronize BLAST databases
+    synchronize: src=/usr/local/dark-matter/blast-dbs dest=/usr/local/dark-matter delete=yes rsync_timeout=10

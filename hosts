@@ -1,0 +1,17 @@
+[local]
+localhost ansible_connection=local
+
+[htcondor_others]
+o16
+o17
+i18
+i20
+i21
+
+[htcondor]
+o16
+o17
+i18
+i19 ansible_connection=local
+i20
+i21
