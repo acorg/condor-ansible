@@ -73,8 +73,13 @@ cluster machines)
     $ cd /usr/local/dark-matter
     $ rm blast
     # Unpack/unzip etc. your new BLAST source tree. Now make a symbolic link to the new dir.
-    $ ln -s ncbi-blast-2.2.28+ blast
+    $ ln -s ncbi-blast-2.2.31+ blast
     $ ansible-playbook blast-executables.yml -i hosts
+
+Note that this will not delete the old blast executables from the other hosts. It
+will copy across the new executables and update the `blast` symbolic link, which is
+all you really need. If you run the `all.yml` playbook (below), the old executables
+will be removed as well.
 
 ## To update everything
 
