@@ -4,4 +4,5 @@
   sudo: yes
   tasks:
   - name: Synchronize BLAST executables
-    synchronize: src=/usr/local/dark-matter/ncbi-blast-2.2.28+ dest=/usr/local delete=yes rsync_timeout=10
+    synchronize: src=/usr/local/dark-matter/ncbi-blast-2.2.30+ dest=/usr/local/dark-matter delete=yes rsync_timeout=10
+    synchronize: src=/usr/local/dark-matter/blast dest=/usr/local/dark-matter delete=yes rsync_timeout=10
