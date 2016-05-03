@@ -1,0 +1,7 @@
+---
+
+- hosts: htcondor_others
+  sudo: yes
+  tasks:
+  - name: Synchronize sequence files
+    synchronize: src=/usr/local/dark-matter/seqs dest=/usr/local/dark-matter delete=yes rsync_timeout=10

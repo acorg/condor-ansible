@@ -18,6 +18,7 @@ You will need to do this if you want to update any of
 * light-matter code
 * BLAST databases
 * BLAST executables
+* Other sequence information
 
 for an `htcondor` run. The above resources are stored locally on each
 cluster machine. The idea is that you can make changes on `albertine` and
@@ -52,6 +53,7 @@ cluster machines)
     drwxrwxr-x  8 terry ncbi  4096 May  3 16:01 dark-matter/
     drwxrwxr-x 10 terry terry 4096 May  3 16:06 light-matter/
     drwxr-xr-x  4 terry terry 4096 Oct 27  2014 ncbi-blast-2.2.30+/
+    drwxrwxr-x  2 terry terry 4096 May  3 16:32 seqs/
     drwxrwxr-x  8 terry ncbi  4096 Mar 16 23:00 virtualenv/
 
 ## Updating dark matter sources on all other cluster machines
@@ -89,6 +91,13 @@ Note that this will not delete the old blast executables from the other hosts. I
 will copy across the new executables and update the `blast` symbolic link, which is
 all you really need. If you run the `all.yml` playbook (below), the old executables
 will be removed as well.
+
+## Updating sequence files on all other cluster machines
+
+    $ ssh albertine.antigenic-cartography.org
+    $ cd /usr/local/dark-matter/seqs
+    $ # Make your changes...
+    $ ansible-playbook seqs.yml -i hosts
 
 ## To update everything
 
