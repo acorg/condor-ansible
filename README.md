@@ -15,6 +15,7 @@ update important local files on the cluster machines.
 You will need to do this if you want to update any of
 
 * dark-matter code
+* light-matter code
 * BLAST databases
 * BLAST executables
 
@@ -45,17 +46,25 @@ Everything available to be changed and pushed to the other cluster machines
 is under `/usr/local/dark-matter` on albertine (and on all the other
 cluster machines)
 
-    $ ls -l
-    lrwxrwxrwx 1 terry terry    18 Oct 26 16:57 blast -> ncbi-blast-2.2.28+/
-    drwxrwxr-x 2 terry ncbi  28672 Feb 10 17:06 blast-dbs/
-    drwxrwxr-x 9 terry ncbi   4096 Feb 10 15:58 dark-matter/
-    drwxr-xr-x 4 terry terry  4096 Mar 13  2013 ncbi-blast-2.2.28+/
-    drwxrwxr-x 8 terry ncbi   4096 Oct 24 18:06 virtualenv/
+    $ ls -l /usr/local/dark-matter
+    lrwxrwxrwx  1 terry terry   18 Feb 13  2015 blast -> ncbi-blast-2.2.30+/
+    lrwxrwxrwx  1 root  root    26 Dec 24 12:24 blast-dbs -> /syn/dark-matter/blast-dbs/
+    drwxrwxr-x  8 terry ncbi  4096 May  3 16:01 dark-matter/
+    drwxrwxr-x 10 terry terry 4096 May  3 16:06 light-matter/
+    drwxr-xr-x  4 terry terry 4096 Oct 27  2014 ncbi-blast-2.2.30+/
+    drwxrwxr-x  8 terry ncbi  4096 Mar 16 23:00 virtualenv/
 
 ## Updating dark matter sources on all other cluster machines
 
     $ ssh albertine.antigenic-cartography.org
     $ cd /usr/local/dark-matter/dark-matter
+    $ git pull origin master
+    $ ansible-playbook src.yml -i hosts
+
+## Updating light matter sources on all other cluster machines
+
+    $ ssh albertine.antigenic-cartography.org
+    $ cd /usr/local/dark-matter/light-matter
     $ git pull origin master
     $ ansible-playbook src.yml -i hosts
 

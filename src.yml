@@ -5,3 +5,5 @@
   tasks:
   - name: Synchronize dark matter source
     synchronize: src=/usr/local/dark-matter/dark-matter dest=/usr/local/dark-matter delete=yes rsync_timeout=10
+  - name: Synchronize light matter source
+    synchronize: src=/usr/local/dark-matter/light-matter dest=/usr/local/dark-matter delete=yes rsync_timeout=10
